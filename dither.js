@@ -98,12 +98,21 @@ YUI.add('dither', function (Y) {
 		
 	}
 	
-	function init(img, callback){
+	function doDither(img, callback, steinberg){
 		var photo = Y.one(img);
+		
+		if(steinberg){
+			floyd = 1;
+		}
 		dither(photo.get('src'), callback);
 	}
 
-	Y.dither = init;
+	/**
+	  * Dither takes three params, an image node (or selector for one), a callback function
+	  * and optionally, steinberg. If steinberg is true this will use the Floyd-Steinberg
+	  * dither rather than the default (Atkinson)
+	  */
+	Y.dither = doDither;
 
 }, '0.0.1', {
 	requires: ['node']
