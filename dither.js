@@ -106,5 +106,5 @@ YUI.add('dither', function (Y) {
 	Y.dither = init;
 
 }, '0.0.1', {
-	requires: ['node', 'dom', 'event']
+	requires: ['node']
 });
